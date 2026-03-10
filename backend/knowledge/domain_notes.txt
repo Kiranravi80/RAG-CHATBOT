@@ -1,0 +1,7 @@
+# Domain Notes for RAG
+
+Use this file for domain-specific rules to guide SQL generation.
+Examples:
+- Fiscal year starts in April.
+- `customer_status = active` means paying user.
+- Revenue must exclude cancelled orders.

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Database Assistant</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.4/dist/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+  <div class="chat-layout">
+    <aside class="sidebar">
+      <h1>AI DB Assistant</h1>
+      <div class="sidebar-actions">
+        <button id="newChatBtn" class="ghost">New Chat</button>
+        <button id="deleteHistoryBtn" class="ghost danger">Delete History</button>
+      </div>
+      <h3 class="sidebar-title">Chat History</h3>
+      <div id="sessionList" class="session-list"></div>
+      <div class="sidebar-footer">
+        <label for="themeSelect">Theme</label>
+        <select id="themeSelect">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+    </aside>
+
+    <section class="chat-main">
+      <header class="chat-header">
+        <h2>Database Assistant</h2>
+        <div id="status" class="status"></div>
+      </header>
+
+      <div id="chatBody" class="chat-body"></div>
+
+      <form id="queryForm" class="composer">
+        <textarea id="question" placeholder="Ask anything about your database..." required></textarea>
+        <div class="composer-actions">
+          <button type="button" id="voiceBtn" class="icon-btn ghost" title="Voice input" aria-label="Voice input">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 1 0-8 0v5a4 4 0 0 0 4 4Zm7-4a1 1 0 1 0-2 0 5 5 0 1 1-10 0 1 1 0 1 0-2 0 7 7 0 0 0 6 6.93V21H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-3.07A7 7 0 0 0 19 11Z"/></svg>
+          </button>
+          <button type="submit" id="sendBtn" class="icon-btn" aria-label="Send message">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 20.4a1 1 0 0 0 1.06.18l16-7a1 1 0 0 0 0-1.84l-16-7A1 1 0 0 0 3 5.64L4.8 11H11a1 1 0 1 1 0 2H4.8L3 18.36a1 1 0 0 0 .4 2.04Z"/></svg>
+          </button>
+        </div>
+      </form>
+    </section>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
